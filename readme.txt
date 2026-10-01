@@ -5,7 +5,7 @@ Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
 WC requires at least: 6.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,9 @@ O método de frete não é exibido no checkout.
 Se o cliente estiver além da distância configurada, o método de frete simplesmente não aparece como opção no checkout.
 
 == Changelog ==
+
+= 1.0.1 =
+* Ajusta a regra de preço: 0 a 1,99km cobra o valor mínimo fixo; a partir de 2km soma o preço por km adicional a cada km cheio (não mais proporcional/fracionado).
 
 = 1.0.0 =
 * Versão inicial: cálculo de frete por distância real com Google Distance Matrix e OpenRouteService, múltiplas lojas, limite de distância máxima e opções de arredondamento do valor final.
