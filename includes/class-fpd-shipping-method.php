@@ -212,17 +212,13 @@ class FPD_Shipping_Method extends WC_Shipping_Method {
     }
 
     /**
-     * Regra de preço: R$ do 1º km fixo (valor mínimo), e a cada km
-     * (cheio, arredondado para cima) excedente ao 1º, soma mais um
-     * valor de km adicional. Ex: 0-1km = R$4; acima de 1km até 2km = R$6;
-     * acima de 2km até 3km = R$8; e assim por diante.
+     * Regra de preço: a faixa de 0 a 1,99km cobra o valor mínimo (preço do
+     * 1º km). A partir de 2km, cada km cheio soma mais um valor de km
+     * adicional. Ex: 0-1,99km = R$4; 2km (até 2,99km) = R$6; 3km (até
+     * 3,99km) = R$8; e assim por diante.
      */
     private function calcular_preco($distancia_km) {
-        if ($distancia_km <= 1) {
-            return $this->aplicar_arredondamento(round($this->preco_primeiro_km, 2));
-        }
-
-        $km_excedente = (int) ceil($distancia_km - 1);
+        $km_excedente = max(0, (int) floor($distancia_km) - 1);
         $custo = $this->preco_primeiro_km + ($km_excedente * $this->preco_km_adicional);
 
         return $this->aplicar_arredondamento(round($custo, 2));

@@ -24,8 +24,8 @@ Caso a API principal falhe (chave inválida, indisponibilidade, limite de cota),
 
 = Regra de cálculo =
 
-* Até 1 km: cobra o valor mínimo configurado (preço do 1º km). Ex: R$4,00.
-* Acima de 1 km: soma o preço por km adicional a cada km cheio (arredondado para cima) excedente ao 1º. Ex: com 1º km R$4,00 e km adicional R$2,00 — acima de 1km até 2km = R$6,00; acima de 2km até 3km = R$8,00; e assim por diante.
+* De 0 a 1,99 km: cobra o valor mínimo configurado (preço do 1º km). Ex: R$4,00.
+* A partir de 2 km: soma o preço por km adicional a cada km cheio. Ex: com 1º km R$4,00 e km adicional R$2,00 — 2km (até 2,99km) = R$6,00; 3km (até 3,99km) = R$8,00; e assim por diante.
 * Se a distância ultrapassar o limite máximo de entrega configurado, o frete não é oferecido no checkout.
 * Resultados de distância ficam em cache (transient) por 6 horas, para economizar cota das APIs.
 
@@ -38,7 +38,7 @@ Caso a API principal falhe (chave inválida, indisponibilidade, limite de cota),
 * **Google Distance Matrix API Key**.
 * **OpenRouteService API Key**.
 * **Preço do 1º km (R$)** — valor mínimo cobrado até 1 km.
-* **Preço por km adicional (R$)** — somado a cada km cheio (arredondado para cima) excedente ao 1º km.
+* **Preço por km adicional (R$)** — somado a cada km cheio a partir do 2º km.
 * **Distância máxima de entrega (km)** — 0 = sem limite.
 * **Arredondamento do valor final**:
     * Cálculo exato (sem arredondar).
