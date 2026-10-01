@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Plugin Name: Frete por Distância (Multi-Loja)
  * Description: Calcula o frete com base na distância real (km fracionado) até a loja mais próxima, usando Google Distance Matrix ou OpenRouteService (com fallback automático). Regra: R$4,00 no 1º km + R$2,00 por km excedente (proporcional).
  * Version: 1.0.0
- * Author: Seu Site
+ * Author: UpSites
  * Requires Plugins: woocommerce
  * WC requires at least: 6.0
  */
